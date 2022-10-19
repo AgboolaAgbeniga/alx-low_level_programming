@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<conio.h>
 
 /**
  * print_times_table - prints times table
