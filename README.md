@@ -1,2 +1,1 @@
-# alx-low_level_programming
-alx-low_level_programming repository for ALX
+This is a readme file for More functions and loops
