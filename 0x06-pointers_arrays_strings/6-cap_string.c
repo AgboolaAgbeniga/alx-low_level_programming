@@ -1,32 +1,32 @@
 #include "main.h"
+
 /**
-*cap_string - function that capitalize first character of a word
-*@str: string to capitalize
-*Return:returns the capitalized string
-*/
-char *cap_string(char *str)
+ * cap_string - Converts to uppercase any char after a special char.
+ *
+ * @s: is a pointer to a char.
+ *
+ * Return: Always 0.
+ */
+
+char *cap_string(char *s)
 {
-	int index = 0;
+int i = 0, flag = 0;
 
-	while (str[++index])
+	while (s[i] != '\0')
 	{
-		while (!(str[index] >= 'a' && str[index] <= 'z'))
-			index++;
-
-		if (str[index - 1] == ' ' ||
-				str[index - 1] == '\t' ||
-				str[index - 1] == '\n' ||
-				str[index - 1] == ',' ||
-				str[index - 1] == ';' ||
-				str[index - 1] == '.' ||
-				str[index - 1] == '!' ||
-				str[index - 1] == '?' ||
-				str[index - 1] == '"' ||
-				str[index - 1] == '(' ||
-				str[index - 1] == ')' ||
-				str[index - 1] == '{' ||
-				str[index - 1] == '}')
-			str[index] -= 32;
+		if (s[i] == '\t' || s[i] == '\n' || s[i] == ' ' || s[i] == ',' || s[i] == ';'
+		|| s[i] == '.' || s[i] == '!' || s[i] == '"' || s[i] == '(' || s[i] == ')'
+		|| s[i] == '{' || s[i] == '}')
+			flag = 1;
+		else if ((s[i] >= 97 && s[i] <= 122 && flag == 1)
+		|| (s[0] >= 97 && s[0] <= 122))
+		{
+			s[i] -= 32;
+			flag = 0;
+		}
+		else
+		flag = 0;
+	i++;
 	}
-	return (str);
+return (s);
 }
