@@ -14,8 +14,3 @@ int main(int argc, char **argv)
 	printf("%s\n", argv[0]);
 	return (0);
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-P
