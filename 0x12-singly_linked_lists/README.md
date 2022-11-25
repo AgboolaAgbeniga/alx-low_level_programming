@@ -1,1 +1,1 @@
-This is a readme file for More functions and loops
+This is a readme file for Stringly linked list
