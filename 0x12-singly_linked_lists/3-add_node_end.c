@@ -1,54 +1,52 @@
-#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
 #include "lists.h"
 
 /**
- * _strlen - finds the length of a string
- * @str: string to find the length of
- *
- * Return: length of string
- */
-unsigned int _strlen(char *str)
+ * _strlen - Length of the passed string
+ * @s: String
+ * Return: Returns the length of a string
+**/
+int _strlen(const char *s)
 {
-	unsigned int i;
+int i = 0;
 
-	for (i = 0; str[i]; i++)
-		;
-	return (i);
+while (*(s + i) != '\0')
+i++;
+
+return (i);
 }
 
 /**
- * add_node_end - adds a new node to the end of linked list
- * @head: double pointer to a linked list
- * @str: string to add to the new node
- *
- * Return: pointer to the new node
- */
+ * add_node_end - Add nodes to the end of the nodes
+ * @head: Pointer to a struct pointer
+ * @str: String passed
+ * Return: Returns amount of node
+**/
+
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new, *tmp;
+list_t *newNode, *tmp = *head;
 
-	if (str == NULL)
-		return (NULL);
-	new = malloc(sizeof(list_t));
-	if (new == NULL)
-		return (NULL);
-	new->str = strdup(str);
-	if (new->str == NULL)
-	{
-		free(new);
-		return (NULL);
-	}
-	new->len = _strlen(new->str);
-	new->next = NULL;
-	if (*head == NULL)
-	{
-		*head = new;
-		return (new);
-	}
-	tmp = *head;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = new;
-	return (new);
+newNode = malloc(sizeof(newNode));
+if (newNode == NULL)
+return (NULL);
+if (str == NULL)
+{
+free(newNode);
+return (NULL);
+}
+newNode->len = _strlen(str);
+newNode->str = strdup(str);
+newNode->next = NULL;
+if (*head == NULL)
+{
+*head = newNode;
+return (newNode);
+}
+while (tmp->next != NULL)
+tmp = tmp->next;
+tmp->next = newNode;
+
+return (newNode);
 }
