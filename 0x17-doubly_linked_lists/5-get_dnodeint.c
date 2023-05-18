@@ -22,8 +22,3 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 	}
 
 	return (node);
-}
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-T
